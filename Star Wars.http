@@ -1,0 +1,5 @@
+@Star_Wars_HostAddress = http://localhost:5076
+
+Accept: application/json
+
+###
