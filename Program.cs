@@ -9,6 +9,9 @@ builder.Services.AddHttpClient("swapi", c =>
     c.BaseAddress = new Uri("https://swapi.dev/api/");
 });
 
+// Register SWAPI client wrapper
+builder.Services.AddTransient<Star_Wars.Services.ISwapiClient, Star_Wars.Services.SwapiClient>();
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
