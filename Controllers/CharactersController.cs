@@ -4,11 +4,11 @@ namespace Star_Wars.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SwapiController : ControllerBase
+    public class CharactersController : ControllerBase
     {
         private readonly Star_Wars.Services.ISwapiClient _swapiClient;
 
-        public SwapiController(Star_Wars.Services.ISwapiClient swapiClient)
+        public CharactersController(Star_Wars.Services.ISwapiClient swapiClient)
         {
             _swapiClient = swapiClient;
         }
