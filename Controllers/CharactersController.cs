@@ -13,7 +13,7 @@ namespace Star_Wars.Controllers
             _swapiClient = swapiClient;
         }
 
-        [HttpGet("people/{id:int}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetPerson(int id)
         {
             try
@@ -27,7 +27,7 @@ namespace Star_Wars.Controllers
             }
         }
 
-        [HttpGet("people")]
+        [HttpGet]
         public async Task<IActionResult> SearchPeople([FromQuery] string? search)
         {
             try
