@@ -1,9 +1,7 @@
-export interface StarshipRow {
+export interface StarshipDetails {
   name: string;
-  hyperdriveRating: string;
+  hyperdrive_rating: string;
   length: string;
   crew: string;
   passengers: string;
-  films: string[];
-  pilots: string[];
 }

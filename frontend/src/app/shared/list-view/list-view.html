@@ -1,1 +1,24 @@
-<p>list-view works!</p>
+<h2>{{ config().title }}</h2>
+
+<table class="list-table">
+  <thead>
+    <tr>
+      @for (col of config().columns; track col.key) {
+        <th>{{ col.label }}</th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (row of rows(); track $index) {
+      <tr>
+        @for (col of config().columns; track col.key) {
+          <td>{{ row[col.key] }}</td>
+        }
+      </tr>
+    } @empty {
+      <tr>
+        <td [attr.colspan]="config().columns.length">No results found.</td>
+      </tr>
+    }
+  </tbody>
+</table>

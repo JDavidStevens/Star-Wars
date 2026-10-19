@@ -1,6 +1,7 @@
 import { Service, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { VehicleDetails } from './vehicles.model';
 
 @Service()
 export class Vehicles {
@@ -11,9 +12,11 @@ export class Vehicles {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  getVehicles(search?: string): Observable<unknown> {
-    return this.http.get(`${this.baseUrl}`, {
-      params: search ? { search } : {},
-    });
+  searchVehicles(search?: string): Observable<VehicleDetails[]> {
+    return this.http
+      .get<{ results: VehicleDetails[] }>(`${this.baseUrl}`, {
+        params: search ? { search } : {},
+      })
+      .pipe(map((res) => res.results));
   }
 }

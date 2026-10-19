@@ -19,7 +19,7 @@ export interface SelectFilterDef extends BaseFilterDef {
 
 export type FilterDef = TextFilterDef | SelectFilterDef;
 
-export interface DetailsConfig<T> {
+export interface ListConfig<T> {
   title: string;
   columns: ColumnDef<T>[];
   filters: FilterDef[];
